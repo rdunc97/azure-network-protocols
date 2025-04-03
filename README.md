@@ -123,3 +123,47 @@ This guide walks you through creating two Virtual Machines (one Windows and one 
 
 </p>
 <br />
+
+<p>
+<h1>🔍 Part 2: Observing ICMP Traffic </h1>
+
+This guide helps you use Wireshark on a Windows 10 VM in Azure to monitor ICMP traffic when pinging another VM and a public website.
+
+---
+</p>
+<br />
+
+
+<p>
+💻 Step 1: Connect to Your Windows 10 VM
+
+- **If you're on a Mac**:
+  1. Install [Microsoft Remote Desktop](https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12)
+  2. Open the app and connect using:
+     - **IP address of your Windows VM**
+     - **Username**: e.g., `labuser`
+     - **Password**: e.g., `Cyberlab123!`
+
+<p> <img src="https://i.imgur.com/BSKlhvT.png" height="40%" width="40%" alt="Disk Sanitization Steps"/> </p>
+
+---
+</p>
+<br />
+
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+</p>
+<br />
+
