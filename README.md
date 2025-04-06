@@ -151,19 +151,208 @@ This guide helps you use Wireshark on a Windows 10 VM in Azure to monitor ICMP t
 <br />
 
 
+
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+🧪 Step 2: Install and Launch Wireshark
+
+1. On the Windows VM, open a browser.
+2. Download and install [Wireshark](https://www.wireshark.org/).
+3. Open Wireshark and **start capturing packets** on the active Ethernet interface.
 
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+---
 </p>
 <br />
 
+
+<p>
+📡 Step 3: Filter for ICMP Traffic
+
+1. In the Wireshark filter bar, type:
+
+`icmp`
+
+2. Press Enter. This will show only ICMP packets (used in ping requests/replies).
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+---
+
+</p>
+<br />
+
+
+<p>
+📥 Step 4: Ping Ubuntu VM from Windows VM
+
+1. In the Azure Portal, go to your **Ubuntu VM (LinuxVM)**.
+2. Copy its **private IP address**.
+3. On the Windows VM:
+   - Open **Command Prompt** or **PowerShell**
+   - Type:
+     ```bash
+     ping <Ubuntu-Private-IP>
+     ```
+
+4. Go back to Wireshark and **observe the ICMP echo requests and replies**.
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+---
+</p>
+<br />
+
+
+<p>
+🌐 Step 5: Ping a Public Website
+
+1. On the Windows VM, open Command Prompt or PowerShell.
+2. Type:
+
+```bash
+ping www.google.com
+```
+Watch Wireshark and observe ICMP traffic and DNS resolution if visible.
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+---
+</p>
+<br />
+
+
+<p>
+<h1>🔐 Part 3: Configuring a Firewall (Network Security Group) </h1>
+
+This part of the lab walks you through controlling ICMP (ping) traffic using Azure Network Security Group (NSG) rules and observing the effect in Wireshark.
+
+---
+</p>
+<br />
+
+
+<p>
+📡 Step 1: Start a Continuous Ping
+
+1. On your **Windows 10 VM**, open **Command Prompt** or **PowerShell**.
+2. Start a **non-stop ping** to the Ubuntu VM's private IP:
+   ```bash
+   ping <Ubuntu-Private-IP> -t
+   ```
+3. Keep this window open and running.
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+---
+</p>
+<br />
+
+
+
+<p>
+🌐 Step 2: Block ICMP Traffic Using NSG
+
+1. In the **Azure Portal**, go to:
+   - **Virtual Machines > LinuxVM > Networking**
+2. Click on the **Network Security Group** attached to the network interface.
+3. Under **Inbound Rules**, click **Add Rule** or **Edit existing ICMP rule**.
+4. Create a **Deny rule**:
+   - **Protocol**: ICMP
+   - **Source**: Any
+   - **Destination**: Any
+   - **Action**: Deny
+   - **Priority**: Lower than existing Allow rules (e.g., 100)
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+---
+</p>
+<br />
+
+
+<p>
+ 🛑 Step 3: Observe the Blocked Traffic
+
+1. In the **Windows VM**, switch to **Wireshark**.
+2. Watch the ICMP echo requests being sent but **no replies received**.
+3. In the **Command Prompt**, you'll see:
+   ```
+   Request timed out.
+   ```
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+---
+</p>
+<br />
+
+
+
+<p>
+✅ Step 4: Re-enable ICMP Traffic
+
+1. Return to the **NSG settings** in Azure.
+2. Delete the Deny rule or **add a new Allow rule** for ICMP:
+   - **Protocol**: ICMP
+   - **Source/Destination**: Any
+   - **Action**: Allow
+   - **Priority**: Lower number than the deny rule (e.g., 100)
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+---
+</p>
+<br />
+
+
+
+<p>
+🔁 Step 5: Observe Ping Recovery
+
+1. Go back to the **Windows VM**:
+   - Ping responses should now start coming in.
+2. Wireshark will now show ICMP echo **replies** again.
+3. The command line will say:
+   ```
+   Reply from <Ubuntu-IP>: bytes=32 time=XXms TTL=XX
+   ```
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+---
+</p>
+<br />
+
+
+<p>
+ 🛑 Step 6: Stop the Ping
+
+1. In the command prompt, press:
+   ```
+   Ctrl + C
+   ```
+2. This will stop the continuous ping loop.
+
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+---
+</p>
+<br />
