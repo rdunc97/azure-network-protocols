@@ -160,7 +160,7 @@ This guide helps you use Wireshark on a Windows 10 VM in Azure to monitor ICMP t
 3. Open Wireshark and **start capturing packets** on the active Ethernet interface.
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/pPtQEb5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
 ---
@@ -178,7 +178,7 @@ This guide helps you use Wireshark on a Windows 10 VM in Azure to monitor ICMP t
 2. Press Enter. This will show only ICMP packets (used in ping requests/replies).
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/0rGQMZB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
 ---
@@ -202,7 +202,7 @@ This guide helps you use Wireshark on a Windows 10 VM in Azure to monitor ICMP t
 4. Go back to Wireshark and **observe the ICMP echo requests and replies**.
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/g9b14YS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
 ---
@@ -222,7 +222,7 @@ ping www.google.com
 Watch Wireshark and observe ICMP traffic and DNS resolution if visible.
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/sTB4b4O.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
 ---
@@ -251,7 +251,7 @@ This part of the lab walks you through controlling ICMP (ping) traffic using Azu
 3. Keep this window open and running.
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/zjwMVgk.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
 </p>
 
 ---
@@ -275,7 +275,7 @@ This part of the lab walks you through controlling ICMP (ping) traffic using Azu
    - **Priority**: Lower than existing Allow rules (e.g., 100)
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/BhGzPPf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
 ---
@@ -294,7 +294,7 @@ This part of the lab walks you through controlling ICMP (ping) traffic using Azu
    ```
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/6YscHAw.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
 </p>
 ---
 </p>
@@ -313,7 +313,7 @@ This part of the lab walks you through controlling ICMP (ping) traffic using Azu
    - **Priority**: Lower number than the deny rule (e.g., 100)
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/YS6YOBs.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
 </p>
 ---
 </p>
@@ -333,7 +333,7 @@ This part of the lab walks you through controlling ICMP (ping) traffic using Azu
    ```
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/lrEjmWt.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
 </p>
 ---
 </p>
@@ -349,10 +349,6 @@ This part of the lab walks you through controlling ICMP (ping) traffic using Azu
    ```
 2. This will stop the continuous ping loop.
 
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
 ---
 </p>
 <br />
